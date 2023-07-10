@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=3 uid="uid://dgl6tkp3h12gx"]
+
+[ext_resource type="Texture2D" uid="uid://cgvhnpdlx1iwm" path="res://Assets/land.png" id="1_8yun4"]
+[ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_21lrn"]
+[ext_resource type="Texture2D" uid="uid://b3w0coi3b2otd" path="res://Assets/water.png" id="2_3dtqd"]
+[ext_resource type="Script" path="res://Scenes/World/WorldGrid.gd" id="3_61cgk"]
+[ext_resource type="Script" path="res://Scenes/World/WorldCamera.gd" id="4_xxgny"]
+[ext_resource type="Script" path="res://Scenes/UI/ColorOptions.gd" id="6_1p4ph"]
+[ext_resource type="Texture2D" uid="uid://dskw6owp8qne7" path="res://Assets/person_blue.png" id="6_1p56u"]
+[ext_resource type="Texture2D" uid="uid://bwqcjylp35hp7" path="res://Assets/person_green.png" id="7_kuyq5"]
+[ext_resource type="Texture2D" uid="uid://bs7u5c6dgldwe" path="res://Assets/person_red.png" id="8_qpxrp"]
+[ext_resource type="Texture2D" uid="uid://dc0kaq011syhd" path="res://Assets/person_yellow.png" id="9_tak2l"]
+[ext_resource type="Texture2D" uid="uid://bn58mpjrfs2j2" path="res://Assets/person_pink.png" id="10_rab0h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7hw8"]
+resource_name = "land"
+texture = ExtResource("1_8yun4")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbplf"]
+resource_name = "water"
+texture = ExtResource("2_3dtqd")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0i00f"]
+sources/0 = SubResource("TileSetAtlasSource_l7hw8")
+sources/1 = SubResource("TileSetAtlasSource_dbplf")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_21lrn")
+
+[node name="WorldGrid" type="TileMap" parent="."]
+position = Vector2(1, 1)
+tile_set = SubResource("TileSet_0i00f")
+format = 2
+layer_0/name = "Terrain"
+script = ExtResource("3_61cgk")
+
+[node name="DebugMode" type="Node2D" parent="WorldGrid"]
+
+[node name="Population" type="Node2D" parent="WorldGrid"]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("4_xxgny")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/GUI"]
+layout_mode = 2
+offset_right = 130.0
+offset_bottom = 144.0
+item_count = 5
+item_0/text = "Blue"
+item_0/icon = ExtResource("6_1p56u")
+item_1/text = "Green"
+item_1/icon = ExtResource("7_kuyq5")
+item_2/text = "Red"
+item_2/icon = ExtResource("8_qpxrp")
+item_3/text = "Pink"
+item_3/icon = ExtResource("10_rab0h")
+item_4/text = "Yellow"
+item_4/icon = ExtResource("9_tak2l")
+script = ExtResource("6_1p4ph")
+
+[connection signal="item_selected" from="CanvasLayer/GUI/ItemList" to="WorldGrid" method="_on_item_list_item_selected"]

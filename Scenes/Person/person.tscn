@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigltd6i7ciqh"]
+
+[ext_resource type="Script" path="res://Scenes/Person/Person.gd" id="1_au1dh"]
+[ext_resource type="Texture2D" uid="uid://bp02ebeoq2vyt" path="res://Assets/person_sprite_sheet.png" id="2_i7h8h"]
+
+[node name="PersonSprite" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("2_i7h8h")
+offset = Vector2(8, 8)
+hframes = 5
+script = ExtResource("1_au1dh")
