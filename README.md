@@ -6,7 +6,7 @@ Empires Automata is a top down sandbox/simulation game that allows users to manu
 and gives colony metrics (more features to come).
 
 Planned Features:
-- [x] Randomly Generate Worlds
+- [x] Randomly generate worlds
 - [x] Allow users to select and place cells via the GUI
 - [x] Implement base cell behavior in which cells will move, reproduce, fight and die
 - [ ] Expand on the tile system and add in additional resources that give colonies buffs
