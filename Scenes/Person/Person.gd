@@ -4,18 +4,18 @@ extends Sprite2D
 var colony: int
 var age: int
 var strength: int
-var base_strength: int
-var strength_addon = RandomNumberGenerator.new()
+var mutation_gen = RandomNumberGenerator.new()
+var mutation = RandomNumberGenerator.new()
 var reproduction: int
 
-func init(color: int, pos: Vector2):
+func init(color: int, pos: Vector2, base_str: int):
 	position = pos
 	frame = color
 	colony = color
 	age = 0
 	reproduction = 0
-	base_strength = 60
-	strength = base_strength + round(strength_addon.randf_range(1.0, 8.0))
+	mutation = round(mutation_gen.randf_range(-4.0, 4.0))
+	strength = base_str + mutation
 
 func is_alive() -> bool:
 	if age >= strength:
@@ -30,5 +30,10 @@ func can_reproduce() -> bool:
 
 func die():
 	queue_free()
+
+func update(base_str: int):
+	age+=1
+	reproduction+=5
+	strength = base_str + mutation
 
 
