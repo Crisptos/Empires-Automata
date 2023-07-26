@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgl6tkp3h12gx"]
+[gd_scene load_steps=19 format=3 uid="uid://dgl6tkp3h12gx"]
 
 [ext_resource type="Texture2D" uid="uid://cgvhnpdlx1iwm" path="res://Assets/land.png" id="1_8yun4"]
 [ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_21lrn"]
@@ -9,9 +9,11 @@
 [ext_resource type="Script" path="res://Scenes/UI/ColorOptions.gd" id="6_1p4ph"]
 [ext_resource type="Texture2D" uid="uid://dskw6owp8qne7" path="res://Assets/person_blue.png" id="6_1p56u"]
 [ext_resource type="Texture2D" uid="uid://bwqcjylp35hp7" path="res://Assets/person_green.png" id="7_kuyq5"]
+[ext_resource type="FontFile" uid="uid://ddm6jmfhl807p" path="res://Assets/Fonts/Retro Gaming.ttf" id="7_xymum"]
 [ext_resource type="Texture2D" uid="uid://bs7u5c6dgldwe" path="res://Assets/person_red.png" id="8_qpxrp"]
 [ext_resource type="Texture2D" uid="uid://dc0kaq011syhd" path="res://Assets/person_yellow.png" id="9_tak2l"]
 [ext_resource type="Texture2D" uid="uid://bn58mpjrfs2j2" path="res://Assets/person_pink.png" id="10_rab0h"]
+[ext_resource type="LabelSettings" uid="uid://beikbpt42pc7i" path="res://Assets/Fonts/Stats_Label.tres" id="14_0yt14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7hw8"]
 resource_name = "land"
@@ -61,9 +63,11 @@ offset_right = 1152.0
 offset_bottom = 649.0
 
 [node name="ItemList" type="ItemList" parent="CanvasLayer/GUI"]
+texture_filter = 1
 layout_mode = 2
 offset_right = 130.0
 offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("7_xymum")
 item_count = 5
 item_0/text = "Blue"
 item_0/icon = ExtResource("6_1p56u")
@@ -78,57 +82,69 @@ item_4/icon = ExtResource("9_tak2l")
 script = ExtResource("6_1p4ph")
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer/GUI"]
+texture_filter = 1
 layout_mode = 0
 offset_top = 145.0
 offset_right = 166.0
 offset_bottom = 176.0
+theme_override_fonts/font = ExtResource("7_xymum")
 text = "Run Simulation"
 
 [node name="CounterRect" type="ColorRect" parent="CanvasLayer/GUI"]
 layout_mode = 0
 offset_top = 515.0
-offset_right = 174.0
+offset_right = 270.0
 offset_bottom = 648.0
 color = Color(0.196078, 0.196078, 0.196078, 0.803922)
 
 [node name="Blue" type="Label" parent="CanvasLayer/GUI/CounterRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 25.0
+offset_left = 4.0
 offset_top = 24.0
-offset_right = 78.0
+offset_right = 176.0
 offset_bottom = 50.0
 text = "Blue: 0 Avg Str: 0"
+label_settings = ExtResource("14_0yt14")
 
 [node name="Green" type="Label" parent="CanvasLayer/GUI/CounterRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 13.0
+offset_left = 4.0
 offset_top = 49.0
-offset_right = 78.0
+offset_right = 193.0
 offset_bottom = 75.0
 text = "Green: 0 Avg Str: 0"
+label_settings = ExtResource("14_0yt14")
 
 [node name="Red" type="Label" parent="CanvasLayer/GUI/CounterRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 29.0
-offset_right = 77.0
+offset_left = 3.0
+offset_right = 169.0
 offset_bottom = 26.0
 text = "Red: 0 Avg Str: 0"
+label_settings = ExtResource("14_0yt14")
 
 [node name="Pink" type="Label" parent="CanvasLayer/GUI/CounterRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 27.0
+offset_left = 7.0
 offset_top = 105.0
-offset_right = 79.0
+offset_right = 176.0
 offset_bottom = 131.0
 text = "Pink: 0 Avg Str: 0"
+label_settings = ExtResource("14_0yt14")
 
 [node name="Yellow" type="Label" parent="CanvasLayer/GUI/CounterRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 10.0
+offset_left = 6.0
 offset_top = 77.0
-offset_right = 79.0
+offset_right = 197.0
 offset_bottom = 103.0
 text = "Yellow: 0 Avg Str: 0"
+label_settings = ExtResource("14_0yt14")
 
 [connection signal="item_selected" from="CanvasLayer/GUI/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="toggled" from="CanvasLayer/GUI/CheckButton" to="." method="_on_check_button_toggled"]

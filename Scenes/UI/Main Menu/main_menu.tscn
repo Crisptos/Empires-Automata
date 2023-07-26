@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6r6byi6a6ekp"]
+
+[ext_resource type="Script" path="res://Scenes/UI/Main Menu/main_menu.gd" id="1_55crw"]
+[ext_resource type="LabelSettings" uid="uid://br5dxaepcs5ax" path="res://Assets/Fonts/Main_Menu_Label.tres" id="1_groxg"]
+[ext_resource type="FontFile" uid="uid://ddm6jmfhl807p" path="res://Assets/Fonts/Retro Gaming.ttf" id="2_3i4qt"]
+
+[sub_resource type="Theme" id="Theme_1jram"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_55crw")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TitleMarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 1146.0
+offset_bottom = 95.0
+
+[node name="Main Title" type="Label" parent="CanvasLayer/TitleMarginContainer"]
+layout_mode = 2
+text = "EMPIRES AUTOMATA"
+label_settings = ExtResource("1_groxg")
+horizontal_alignment = 1
+
+[node name="HButtonContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_top = 87.0
+offset_right = 1152.0
+offset_bottom = 159.0
+
+[node name="Play" type="Button" parent="CanvasLayer/HButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_1jram")
+theme_override_fonts/font = ExtResource("2_3i4qt")
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+
+[node name="Options" type="Button" parent="CanvasLayer/HButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_1jram")
+theme_override_fonts/font = ExtResource("2_3i4qt")
+theme_override_font_sizes/font_size = 30
+text = "OPTIONS"
+
+[node name="Quit" type="Button" parent="CanvasLayer/HButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = SubResource("Theme_1jram")
+theme_override_fonts/font = ExtResource("2_3i4qt")
+theme_override_font_sizes/font_size = 30
+text = "QUIT
+"
+
+[connection signal="pressed" from="CanvasLayer/HButtonContainer/Play" to="." method="_on_play_pressed"]

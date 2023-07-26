@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://br5dxaepcs5ax"]
+
+[ext_resource type="FontFile" uid="uid://ddm6jmfhl807p" path="res://Assets/Fonts/Retro Gaming.ttf" id="1_37vmb"]
+
+[resource]
+font = ExtResource("1_37vmb")
+font_size = 47
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
