@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6r6byi6a6ekp"]
+[gd_scene load_steps=6 format=3 uid="uid://b6r6byi6a6ekp"]
 
 [ext_resource type="Script" path="res://Scenes/UI/Main Menu/main_menu.gd" id="1_55crw"]
 [ext_resource type="LabelSettings" uid="uid://br5dxaepcs5ax" path="res://Assets/Fonts/Main_Menu_Label.tres" id="1_groxg"]
 [ext_resource type="FontFile" uid="uid://ddm6jmfhl807p" path="res://Assets/Fonts/Retro Gaming.ttf" id="2_3i4qt"]
+[ext_resource type="PackedScene" uid="uid://cqa48oq2i3hq5" path="res://Scenes/UI/Main Menu/options_menu.tscn" id="4_2s5kb"]
 
 [sub_resource type="Theme" id="Theme_1jram"]
 
@@ -19,7 +20,7 @@ script = ExtResource("1_55crw")
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 650.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0.431373, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -63,4 +64,8 @@ theme_override_font_sizes/font_size = 30
 text = "QUIT
 "
 
+[node name="options_menu" parent="CanvasLayer" instance=ExtResource("4_2s5kb")]
+visible = false
+
 [connection signal="pressed" from="CanvasLayer/HButtonContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/HButtonContainer/Options" to="." method="_on_options_pressed"]
