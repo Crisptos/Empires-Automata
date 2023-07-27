@@ -10,7 +10,6 @@ Planned Features:
 - [x] Allow users to select and place cells via the GUI
 - [x] Implement base cell behavior in which cells will move, reproduce, fight and die
 - [ ] Expand on the tile system and add in additional resources that give colonies buffs
-  - [x] Add the iron resource tile
 - [ ] Give colonies buffs based on their total population
 - [ ] Main menu
 - [ ] Allow users to save/load maps, create custom ones, etc
