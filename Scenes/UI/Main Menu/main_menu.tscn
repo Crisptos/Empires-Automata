@@ -18,17 +18,19 @@ script = ExtResource("1_55crw")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 650.0
+offset_right = 1285.0
+offset_bottom = 721.0
 color = Color(0, 0, 0.431373, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TitleMarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 1146.0
+[node name="Title" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 0.065625
+offset_right = 1199.0
 offset_bottom = 95.0
 
-[node name="Main Title" type="Label" parent="CanvasLayer/TitleMarginContainer"]
+[node name="Main Title" type="Label" parent="CanvasLayer/Title"]
 layout_mode = 2
 text = "EMPIRES AUTOMATA"
 label_settings = ExtResource("1_groxg")
@@ -38,6 +40,8 @@ horizontal_alignment = 1
 offset_top = 87.0
 offset_right = 1152.0
 offset_bottom = 159.0
+scale = Vector2(1.15, 1.15)
+metadata/_edit_use_anchors_ = true
 
 [node name="Play" type="Button" parent="CanvasLayer/HButtonContainer"]
 layout_mode = 2

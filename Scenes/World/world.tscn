@@ -51,7 +51,7 @@ script = ExtResource("3_61cgk")
 top_level = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(640, 360)
 script = ExtResource("4_xxgny")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -59,8 +59,8 @@ script = ExtResource("4_xxgny")
 [node name="GUI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 649.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="ItemList" type="ItemList" parent="CanvasLayer/GUI"]
 texture_filter = 1
@@ -92,9 +92,9 @@ text = "Run Simulation"
 
 [node name="CounterRect" type="ColorRect" parent="CanvasLayer/GUI"]
 layout_mode = 0
-offset_top = 515.0
+offset_top = 587.0
 offset_right = 270.0
-offset_bottom = 648.0
+offset_bottom = 720.0
 color = Color(0.196078, 0.196078, 0.196078, 0.803922)
 
 [node name="Blue" type="Label" parent="CanvasLayer/GUI/CounterRect"]
